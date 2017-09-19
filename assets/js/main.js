@@ -37,7 +37,7 @@ function mostrarNumero(e) {
             abrirTablero(minas);
             swal(
                 'Oops...',
-                'Perdiste!',
+                'Perdiste! Esto ha explotado!',
                 'error'
             );
         }
@@ -163,3 +163,4 @@ function abrirTablero(tablero) {
 crearTablero();
 generarBombas(minas);
 bombasAlrededor(minas);
+
