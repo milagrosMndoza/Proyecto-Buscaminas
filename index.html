@@ -15,16 +15,23 @@
 
 <body>
     <h1>Juego Buscaminas</h1>
-   
-        <div id="tablerominas" class="tablero text center" col-sm-12>
+    <div class="row">
+        <div id="tablerominas" class="tablero col-lg-12 text center">
         </div>
-   <script>
-	swal({
-	  title: "Bienvenido!",
-	  text: "Te divertirás con este juego Buscaminas!",
-	  type: "success"
-	});
-</script>
+        <div class="container text-center">
+            <button id="btnReiniciar" type="button" class="btn-responsive col-lg-4 btn btn-warning" onClick="location.reload()">Reiniciar</button>
+        </div>
+    </div>
+  
+    <script>
+        swal({
+            title: "Bienvenido!",
+            text: "Te divertirás con este juego Buscaminas!",
+            type: "success"
+        });
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
