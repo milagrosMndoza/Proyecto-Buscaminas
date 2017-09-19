@@ -5,13 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="sweetalert-master/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert-master/dist/sweetalert.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <title>Buscaminas</title>
 </head>
 
 <body>
-    <div id="tableroMinas" class="tablero">
-    </div>
+    <h1>Juego Buscaminas</h1>
+   
+        <div id="tablerominas" class="tablero text center" col-sm-12>
+        </div>
+   <script>
+	swal({
+	  title: "Bienvenido!",
+	  text: "Te divertirás con este juego Buscaminas!",
+	  type: "success"
+	});
+</script>
     <script src="assets/js/main.js"></script>
 </body>
 
