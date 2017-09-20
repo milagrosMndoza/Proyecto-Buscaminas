@@ -1,33 +1,40 @@
 //solucion_poo_literales.js
 'use strict';
 const app = {
+    item: {
+        minas: undefined,
+    },
     init: function(){
-        let minas = inicializaMatriz();
-        
-        function inicializaMatriz() {
+         minas= app.inicializaMatriz();
+         app.crearTablero();
+         app.generarBombas(minas);
+         app.bombasAlrededor(minas);
+    },   
+    inicializaMatriz: function () {
             let tabla = [];
             for (let i = 0; i < 8; i++) {
                 tabla[i] = [0, 0, 0, 0, 0, 0, 0, 0];
             }
             return tabla;
-        }
+        },      
         
-        function crearTablero() {
+        
+         crearTablero: function() {
             for (let i = 0; i < 8; i++) {
                 for (let j = 0; j < 8; j++) {
                     let div = document.createElement("div");
                     div.id = i + "" + j;
-                    div.addEventListener("click", mostrarNumero, true);
+                    div.addEventListener("click", app.mostrarNumero, true);
                     tablerominas.appendChild(div);
                 }
             }
         
-        }
+        },
         
-        function mostrarNumero(e) {
+         mostrarNumero:function(e) {
             let auxstr = this.id.split("");
             let myid = auxstr[0] + auxstr[1];
-            divObj = document.getElementById(myid);
+            let divObj = document.getElementById(myid);
         
             if (minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] == 0) {
                 divObj.style.backgroundColor = "white";
@@ -46,37 +53,37 @@ const app = {
                     );
                 }
             }
-        }
+        },
         
-        function bombasAlrededor(tablero) {
+         bombasAlrededor: function(tablero) {
             for (let i = 0; i < 8; i++) {
                 for (let j = 0; j < 8; j++) {
                     if (tablero[i][j] == "*") {
                         if (i == 0 && j == 0) {
                             colocaNumeroBombas(i, j, i + 1, j + 1, tablero);
                         } else if (i == 0 && (j > 0 && j < 7)) {
-                            colocaNumeroBombas(i, j - 1, i + 1, j + 1, tablero);
+                            app.colocaNumeroBombas(i, j - 1, i + 1, j + 1, tablero);
                         } else if (i == 0 && j == 7) {
-                            colocaNumeroBombas(i, j - 1, i + 1, j, tablero);
+                            app.colocaNumeroBombas(i, j - 1, i + 1, j, tablero);
                         } else if (j == 7 && (i > 0 && i < 7)) {
-                            colocaNumeroBombas(i - 1, j - 1, i + 1, j, tablero);
+                            app.colocaNumeroBombas(i - 1, j - 1, i + 1, j, tablero);
                         } else if (i == 7 && j == 7) {
-                            colocaNumeroBombas(i - 1, j - 1, i, j, tablero);
+                            app.colocaNumeroBombas(i - 1, j - 1, i, j, tablero);
                         } else if (i == 7 && (j > 0 && j < 7)) {
-                            colocaNumeroBombas(i - 1, j - 1, i, j + 1, tablero);
+                            app.colocaNumeroBombas(i - 1, j - 1, i, j + 1, tablero);
                         } else if (i == 7 && j == 0) {
-                            colocaNumeroBombas(i - 1, j, i, j + 1, tablero);
+                            app.colocaNumeroBombas(i - 1, j, i, j + 1, tablero);
                         } else if (j == 0 && (i > 0 && i < 7)) {
-                            colocaNumeroBombas(i - 1, j, i + 1, j + 1, tablero);
+                            app.colocaNumeroBombas(i - 1, j, i + 1, j + 1, tablero);
                         } else {
-                            colocaNumeroBombas(i - 1, j - 1, i + 1, j + 1, tablero);
+                            app.colocaNumeroBombas(i - 1, j - 1, i + 1, j + 1, tablero);
                         }
                     }
                 }
             }
-        }
+        },
         
-        function colocaNumeroBombas(leti, letj, fini, finj, tablero) {
+         colocaNumeroBombas: function(leti, letj, fini, finj, tablero) {
             for (let i = leti; i <= fini; i++) {
                 for (let j = letj; j <= finj; j++) {
                     if (tablero[i][j] != "*") {
@@ -84,9 +91,9 @@ const app = {
                     }
                 }
             }
-        }
+        },
         
-        function generarBombas(tablero) {
+         generarBombas: function(tablero) {
             let fil = 0;
             let col = 0;
         
@@ -100,9 +107,9 @@ const app = {
                 }
                 tablero[fil][col] = "*";
             }
-        }
+        },
         
-        function abrirCeros(leti, letj, fini, finj, cori, corj, tablero) {
+         abrirCeros: function(leti, letj, fini, finj, cori, corj, tablero) {
             for (let i = leti; i <= fini; i++) {
                 for (let j = letj; j <= finj; j++) {
                     let myid = i + "" + j;
@@ -114,7 +121,7 @@ const app = {
                                 objDiv.style.backgroundColor = "white";
                             } else {
                                 if (objDiv.style.backgroundColor != "white") {
-                                    abrirAlrededor(i, j, tablero);
+                                    app.abrirAlrededor(i, j, tablero);
                                 }
                             }
         
@@ -127,31 +134,31 @@ const app = {
                     }
                 }
             }
-        }
+        },
         
-        function abrirAlrededor(xi, xj, tablero) {
+         abrirAlrededor: function(xi, xj, tablero) {
             if (xi == 0 && xj == 0) {
-                abrirCeros(xi, xj, xi + 1, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi, xj, xi + 1, xj + 1, xi, xj, tablero);
             } else if (xi == 0 && (xj > 0 && xj < 7)) {
-                abrirCeros(xi, xj - 1, xi + 1, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi, xj - 1, xi + 1, xj + 1, xi, xj, tablero);
             } else if (xi == 0 && xj == 7) {
-                abrirCeros(xi, xj - 1, xi + 1, xj, xi, xj, tablero);
+                app.abrirCeros(xi, xj - 1, xi + 1, xj, xi, xj, tablero);
             } else if (xj == 7 && (xi > 0 && xi < 7)) {
-                abrirCeros(xi - 1, xj - 1, xi + 1, xj, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj - 1, xi + 1, xj, xi, xj, tablero);
             } else if (xi == 7 && xj == 7) {
-                abrirCeros(xi - 1, xj - 1, xi, xj, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj - 1, xi, xj, xi, xj, tablero);
             } else if (xi == 7 && (xj > 0 && xj < 7)) {
-                abrirCeros(xi - 1, xj - 1, xi, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj - 1, xi, xj + 1, xi, xj, tablero);
             } else if (xi == 7 && xj == 0) {
-                abrirCeros(xi - 1, xj, xi, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj, xi, xj + 1, xi, xj, tablero);
             } else if (xj == 0 && (xi > 0 && xi < 7)) {
-                abrirCeros(xi - 1, xj, xi + 1, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj, xi + 1, xj + 1, xi, xj, tablero);
             } else {
-                abrirCeros(xi - 1, xj - 1, xi + 1, xj + 1, xi, xj, tablero);
+                app.abrirCeros(xi - 1, xj - 1, xi + 1, xj + 1, xi, xj, tablero);
             }
-        }
+        },
         
-        function abrirTablero(tablero) {
+         abrirTablero: function(tablero) {
             for (let i = 0; i < 8; i++) {
                 for (let j = 0; j < 8; j++) {
                     let myid = i + "" + j;
@@ -163,11 +170,6 @@ const app = {
             }
         }
         
-        
-        crearTablero();
-        generarBombas(minas);
-        bombasAlrededor(minas);
-    }
 }
 
 app.init();

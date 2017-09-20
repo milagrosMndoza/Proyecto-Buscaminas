@@ -25,7 +25,7 @@ function crearTablero() {
 function mostrarNumero(e) {
     var auxstr = this.id.split("");
     var myid = auxstr[0] + auxstr[1];
-    divObj = document.getElementById(myid);
+    var divObj = document.getElementById(myid);
 
     if (minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] == 0) {
         divObj.style.backgroundColor = "white";

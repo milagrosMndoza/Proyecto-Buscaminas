@@ -1,46 +1,45 @@
-   @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Black+Ops+One|Chelsea+Market|Fredericka+the+Great|Londrina+Solid|Sigmar+One');
-   body {
-       
-       background-image: url(../img/fondo.gif);
-       background-size: cover;
-       background-repeat: no-repeat;
-   }
-   
-   h1 {
-       font-size: 60px;
-       font-family: 'Londrina Solid', cursive;
-       text-shadow: #F1D11C 6px 0;
-       text-align: center;
-       color: rgba(230, 89, 14, 0.76);
-       margin-bottom: 0;
-       
-   }
-   
-   .tablero {
-       
-       height: 33%;
-       margin-bottom: 1%;
-       text-align: center;
-       margin-top: 80px;
-       position: relative;
-   }
-   
-   .tablero div {
-       width: 50px;
-       height: 50px;
-       border: 1px solid black;
-       float: left;
-       background-color: rgba(245, 189, 2, 0.76);
-       font-size: 30;
-       text-align: center;
-   }
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Black+Ops+One|Chelsea+Market|Fredericka+the+Great|Londrina+Solid|Sigmar+One');
+body {
+    
+    background-image: url(../img/fondo.gif);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Londrina Solid', cursive;
+    text-shadow: #F1D11C 6px 0;
+    text-align: center;
+    color: rgba(230, 89, 14, 0.76);
+    margin-bottom: 0;
+    
+}
+
+.tablero {
+    width: 33%;
+    height: 33%;
+    margin-bottom: 1%;
+    margin-left: 33%;
+    margin-top: 80px;
+}
+
+.tablero div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    float: left;
+    background-color: rgba(245, 189, 3, 0.76);
+    font-size: 30;
+    text-align: center;
+}
 #btnReiniciar{
-       
-    margin: 0 auto;
+ width: 10%;
+ 
+ margin: 0 auto;
 }
 .container{
 
-  background-color: transparent;
-  display: flex;
-  justify-content: center;  
+background-color: transparent;
+display: flex;
+justify-content: center;  
 }
