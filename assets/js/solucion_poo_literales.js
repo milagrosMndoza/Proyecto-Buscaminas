@@ -2,13 +2,15 @@
 'use strict';
 const app = {
     item: {
+
         minas: undefined,
+
     },
     init: function(){
-         minas= app.inicializaMatriz();
+         app.item.minas= app.inicializaMatriz();
          app.crearTablero();
-         app.generarBombas(minas);
-         app.bombasAlrededor(minas);
+         app.generarBombas(app.item.minas);
+         app.bombasAlrededor(app.item.minas);
     },   
     inicializaMatriz: function () {
             let tabla = [];
@@ -36,16 +38,16 @@ const app = {
             let myid = auxstr[0] + auxstr[1];
             let divObj = document.getElementById(myid);
         
-            if (minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] == 0) {
+            if (app.item.minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] == 0) {
                 divObj.style.backgroundColor = "white";
-                abrirAlrededor(parseInt(auxstr[0], 10), parseInt(auxstr[1], 10), minas);
+                app.abrirAlrededor(parseInt(auxstr[0], 10), parseInt(auxstr[1], 10), app.item.minas);
             } else {
-                if (minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] != "*") {
-                    document.getElementById(myid).innerHTML = "<p style='margin-top:15px;'>" + minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] + "</p>";
+                if (app.item.minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] != "*") {
+                    document.getElementById(myid).innerHTML = "<p style='margin-top:15px;'>" + app.item.minas[parseInt(auxstr[0], 10)][parseInt(auxstr[1], 10)] + "</p>";
                     divObj.style.backgroundColor = "white";
                 } else {
                     divObj.style.backgroundImage = "url(assets/img/bomba.gif)";
-                    abrirTablero(minas);
+                    app.abrirTablero(app.item.minas);
                     swal(
                         'Oops...',
                         'Perdiste! Esto ha explotado!',
